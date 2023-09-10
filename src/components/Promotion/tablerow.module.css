@@ -1,0 +1,8 @@
+.cell {
+  padding: 20px;
+  border: 1px black solid;
+}
+
+.cellMarked {
+  background-color: bisque;
+}

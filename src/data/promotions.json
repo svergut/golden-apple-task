@@ -1,0 +1,268 @@
+{
+  "promotions": [
+    {
+      "id": 1,
+      "title": "Первая акция",
+      "startDate": "2023-01-01",
+      "endDate": "2023-02-01",
+      "CategoryId": 1,
+      "CategoryName": "Основная акция",
+      "rules": [
+        {
+          "ruleId": 1,
+          "brandName": "Первый бренд",
+          "brandId": 101,
+          "discount": 20
+        },
+        {
+          "ruleId": 2,
+          "brandName": "Второй бренд",
+          "brandId": 102,
+          "discount": 25
+        },
+        {
+          "ruleId": 3,
+          "brandName": "Третий бренд",
+          "brandId": 103,
+          "discount": 23
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Вторая акция",
+      "startDate": "2023-01-15",
+      "endDate": "2023-02-05",
+      "CategoryId": 2,
+      "CategoryName": "Категорийная акция",
+      "rules": [
+        {
+          "ruleId": 4,
+          "brandName": "Первый бренд",
+          "brandId": 101,
+          "discount": 20
+        },
+        {
+          "ruleId": 5,
+          "brandName": "Четвертый бренд",
+          "brandId": 104,
+          "discount": 30
+        },
+        {
+          "ruleId": 6,
+          "brandName": "Пятый бренд",
+          "brandId": 105,
+          "discount": 25
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Третья акция",
+      "startDate": "2023-02-02",
+      "endDate": "2023-02-20",
+      "CategoryId": 3,
+      "CategoryName": "Промокоды и кэшбек",
+      "rules": [
+        {
+          "ruleId": 7,
+          "brandName": "Пятый бренд",
+          "brandId": 105,
+          "discount": 15
+        },
+        {
+          "ruleId": 8,
+          "brandName": "Третий бренд",
+          "brandId": 103,
+          "discount": 15
+        },
+        {
+          "ruleId": 9,
+          "brandName": "Шестой бренд",
+          "brandId": 106,
+          "discount": 15
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Четвертая акция",
+      "startDate": "2023-02-20",
+      "endDate": "2023-03-10",
+      "CategoryId": 4,
+      "CategoryName": "Клиентские дни",
+      "rules": [
+        {
+          "ruleId": 10,
+          "brandName": "Второй бренд",
+          "brandId": 102,
+          "discount": 35
+        },
+        {
+          "ruleId": 11,
+          "brandName": "Седьмой бренд",
+          "brandId": 107,
+          "discount": 20
+        },
+        {
+          "ruleId": 12,
+          "brandName": "Шестой бренд",
+          "brandId": 106,
+          "discount": 10
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Пятая акция",
+      "startDate": "2023-02-15",
+      "endDate": "2023-03-15",
+      "CategoryId": 3,
+      "CategoryName": "Промокоды и кэшбек",
+      "rules": [
+        {
+          "ruleId": 13,
+          "brandName": "Седьмой бренд",
+          "brandId": 107,
+          "discount": 30
+        },
+        {
+          "ruleId": 14,
+          "brandName": "Восьмой бренд",
+          "brandId": 108,
+          "discount": 15
+        },
+        {
+          "ruleId": 15,
+          "brandName": "Четвертый бренд",
+          "brandId": 104,
+          "discount": 15
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Шестая акция",
+      "startDate": "2023-03-20",
+      "endDate": "2023-03-30",
+      "CategoryId": 2,
+      "CategoryName": "Категорийная акция",
+      "rules": [
+        {
+          "ruleId": 16,
+          "brandName": "Девятый бренд",
+          "brandId": 109,
+          "discount": 23
+        },
+        {
+          "ruleId": 17,
+          "brandName": "Десятый бренд",
+          "brandId": 110,
+          "discount": 23
+        },
+        {
+          "ruleId": 18,
+          "brandName": "Третий бренд",
+          "brandId": 103,
+          "discount": 23
+        },
+        {
+          "ruleId": 19,
+          "brandName": "Пятый бренд",
+          "brandId": 105,
+          "discount": 23
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Седьмая акция",
+      "startDate": "2023-04-01",
+      "endDate": "2023-04-15",
+      "CategoryId": 1,
+      "CategoryName": "Основная акция",
+      "rules": [
+        {
+          "ruleId": 20,
+          "brandName": "Седьмой бренд",
+          "brandId": 107,
+          "discount": 14
+        },
+        {
+          "ruleId": 21,
+          "brandName": "Пятый бренд",
+          "brandId": 105,
+          "discount": 13
+        },
+        {
+          "ruleId": 22,
+          "brandName": "Третий бренд",
+          "brandId": 103,
+          "discount": 12
+        },
+        {
+          "ruleId": 23,
+          "brandName": "Четвертый бренд",
+          "brandId": 104,
+          "discount": 11
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Восьмая акция",
+      "startDate": "2023-04-10",
+      "endDate": "2023-04-25",
+      "CategoryId": 4,
+      "CategoryName": "Клиентские дни",
+      "rules": [
+        {
+          "ruleId": 24,
+          "brandName": "Седьмой бренд",
+          "brandId": 107,
+          "discount": 22
+        },
+        {
+          "ruleId": 25,
+          "brandName": "Второй бренд",
+          "brandId": 102,
+          "discount": 11
+        },
+        {
+          "ruleId": 26,
+          "brandName": "Десятый бренд",
+          "brandId": 110,
+          "discount": 37
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Девятая акция",
+      "startDate": "2023-04-10",
+      "endDate": "2023-04-25",
+      "CategoryId": 3,
+      "CategoryName": "Промокоды и кэшбек",
+      "rules": [
+        {
+          "ruleId": 24,
+          "brandName": "Седьмой бренд",
+          "brandId": 107,
+          "discount": 22
+        },
+        {
+          "ruleId": 25,
+          "brandName": "Второй бренд",
+          "brandId": 102,
+          "discount": 11
+        },
+        {
+          "ruleId": 26,
+          "brandName": "Десятый бренд",
+          "brandId": 110,
+          "discount": 37
+        }
+      ]
+    }
+  ]
+}
