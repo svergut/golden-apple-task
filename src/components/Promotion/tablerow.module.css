@@ -1,6 +1,5 @@
 .cell {
-  padding: 20px;
-  border: 1px black solid;
+  display: inline-block;
 }
 
 .cellMarked {

@@ -16,3 +16,9 @@ export function compareDates(d1: Date, d2: Date): 0 | 1 | -1 {
     return d1.getFullYear() > d2.getFullYear() ? 1 : -1
   }
 }
+
+export function getDifferenceInDates(d1: Date, d2: Date, includeLastDay?: boolean): number {
+  const difference = (d1.getTime() - d2.getTime()) / (1000 * 3600 * 24)
+
+  return includeLastDay ? difference + 1 : difference
+}
