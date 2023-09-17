@@ -17,6 +17,18 @@ export function compareDates(d1: Date, d2: Date): 0 | 1 | -1 {
   }
 }
 
+export function getWeekNumber(date: Date): number {
+  const dateCopy = new Date(date)
+  dateCopy.setHours(0, 0, 0, 0)
+
+  const firstDayOfYear = new Date(dateCopy.getFullYear(), 0, 1);
+  const dateDifferenceMs = dateCopy.valueOf() - firstDayOfYear.valueOf()
+
+  const daysSinceYearFirstDay = dateDifferenceMs / 86400000;
+
+  return Math.ceil((daysSinceYearFirstDay + firstDayOfYear.getDay() + 1) / 7);
+}
+
 type GetDifferenceInDatesOptions = {
   includeStartDate?: boolean,
   includeEndDate?: boolean

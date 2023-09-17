@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PromotionTable from './components/Promotion/Table';
 import { getPromotions } from './utils/promotions';
+import PromotionTable from './components/Promotion/Table/index';
 
 const promotions = getPromotions()
 

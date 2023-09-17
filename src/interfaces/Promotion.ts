@@ -16,5 +16,6 @@ export default interface Promotion {
   id: number,
   CategoryId: number,
   CategoryName: string,
+  color: string,
   campaigns: PromotionCampaign[]
 }

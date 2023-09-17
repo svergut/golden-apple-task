@@ -1,8 +1,8 @@
 import { useMemo } from "react"
-import Promotion, { PromotionCampaign } from "../../interfaces/Promotion"
-import styles from './tablerow.module.css'
+import Promotion, { PromotionCampaign } from "../../../interfaces/Promotion"
+import styles from './table.module.css'
 import cn from "classnames"
-import { compareDates, getDifferenceInDates, getWeekNumber } from "../../utils/date"
+import { compareDates, getDifferenceInDates, getWeekNumber } from "../../../utils/date"
 
 interface TableRowProps {
   promotionData: Promotion,
@@ -112,89 +112,16 @@ export default function TableRow({
     return result
   }, [startDate, endDate, promotionData])
 
-  const datesToRender: TableCellProps[] = useMemo(() => {
-    const result: TableCellProps[] = []
-
-    if (!startDate) {
-      return result
-    }
-
-    const { campaigns } = promotionData
-
-    let currentDate = new Date(startDate)
-
-    while (compareDates(currentDate, endDate) !== 1) {
-      const dateCampaigns: PromotionCampaign[] = []
-
-      for (const campaign of campaigns) {
-        const campaignStartDateComparisonResult = compareDates(campaign.startDate, currentDate) 
-        const campaignEndDateComparisonResult = compareDates(campaign.endDate, currentDate) 
-
-        if (campaignStartDateComparisonResult <= 0 && campaignEndDateComparisonResult >= 0) {
-          dateCampaigns.push(campaign)
-        }
-      }
-
-      result.push({
-        date: currentDate,
-        campaigns: dateCampaigns
-      })
-
-      currentDate = new Date(currentDate)
-      currentDate.setDate(currentDate.getDate() + 1)
-    }
-
-    return result
-  }, [startDate, endDate, promotionData])
-
-  // const weekNumbersToRender = useMemo(() => {
-  //   const result: { number: number, length: number }[] = []
-
-  //   let currentDate = new Date(startDate)
-  //   let currentWeekNumber = 0
-  //   let currentWeekLength = 0
-
-    
-  //   while (compareDates(currentDate, endDate) !== 1) { 
-  //     currentWeekLength += 1
-  //     const dayWeekNumber = getWeekNumber(currentDate)
-
-  //     if (dayWeekNumber !== currentWeekNumber) {
-  //       result.push({
-  //         number: dayWeekNumber,
-  //         length: currentWeekLength
-  //       })
-
-  //       currentWeekNumber = dayWeekNumber
-  //       currentWeekLength = 0
-  //     }
-
-
-  //     currentDate = new Date(currentDate)
-  //     currentDate.setDate(currentDate.getDate() + 1)
-  //   }
-
-  //   console.log(getWeekNumber(currentDate))
-
-  //   return result
-  // }, [startDate, endDate])
-
-  // console.log({ weekNumbersToRender })
-
   return (
-    <div>
-      <h3>{promotionData.CategoryName}</h3>
+    <div className={styles.row}>
+      <span className={styles.tableRowHeader}>
+        <h4>{promotionData.CategoryName}</h4>
+      </span>
 
-      <div style={{ display: 'inline-flex'}}>
-      {
-        datesToRender.map(({ date, campaigns }, index) => {
-          return (
-            <span key={index} style={{width: itemWidthPx}} className={cn(styles.cell, campaigns.length && styles.cellMarked)}>{date.getDate()}.{date.getMonth() + 1}</span>
-          )
-        })
-      }
-      </div>
-
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
       {
         slicesToRender.map((line, sliceIndex) => {
           return (
@@ -204,10 +131,10 @@ export default function TableRow({
               {
                 line.map(({ length, value }, index) => {
                   return (
-                    <span key={index} style={{
+                    <div key={index} style={{
                       width: length  * itemWidthPx,
-                      borderStyle: 'inset'
-                    }} className={styles.cell}>{value?.title || length}</span>
+                      backgroundColor: value ? promotionData.color : 'unset',
+                    }} className={styles.cell}>{value?.title}</div>
                   )
                 })
               }
@@ -215,6 +142,7 @@ export default function TableRow({
           )
         })
       }
+      </div>
     </div>
   )
 }

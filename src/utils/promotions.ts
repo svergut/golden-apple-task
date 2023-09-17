@@ -1,5 +1,11 @@
 import data from '../data/promotions.json'
+import colorsData from '../data/promotionColors.json'
 import Promotion, { PromotionCampaign } from '../interfaces/Promotion'
+import { ObjectType } from 'typescript'
+
+const promotionColors: {
+  [key: string]: string | undefined
+} = { ...colorsData.promotionColors }
 
 export function getPromotions(): Promotion[] {
   const { promotions } = data
@@ -29,6 +35,7 @@ export function getPromotions(): Promotion[] {
         id,
         CategoryId,
         CategoryName,
+        color: promotionColors[CategoryId] || colorsData.promotionColors.default,
         campaigns: [campaign]
       }
 
