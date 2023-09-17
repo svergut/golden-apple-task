@@ -17,8 +17,23 @@ export function compareDates(d1: Date, d2: Date): 0 | 1 | -1 {
   }
 }
 
-export function getDifferenceInDates(d1: Date, d2: Date, includeLastDay?: boolean): number {
-  const difference = (d1.getTime() - d2.getTime()) / (1000 * 3600 * 24)
+type GetDifferenceInDatesOptions = {
+  includeStartDate?: boolean,
+  includeEndDate?: boolean
+}
 
-  return includeLastDay ? difference + 1 : difference
+export function getDifferenceInDates(
+  d1: Date, 
+  d2: Date, 
+  options: GetDifferenceInDatesOptions = { 
+    includeStartDate: true,
+    includeEndDate: false
+  }
+): number {
+  const difference = 
+    (d1.getTime() - d2.getTime()) / (1000 * 3600 * 24) - 
+    (!options.includeStartDate ? 1 : 0) +
+    (options.includeEndDate ? 1 : 0)
+
+  return difference
 }

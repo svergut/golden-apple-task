@@ -5,12 +5,15 @@ export function getPromotions(): Promotion[] {
   const { promotions } = data
 
   return promotions.reduce<Promotion[]>((previousValue, currentPromotion, index, sourceData) => {
-    const { startDate, endDate, title, rules } = currentPromotion
+    const { startDate: startDateRaw, endDate: endDateRaw, title, rules } = currentPromotion
+
+    const startDate = new Date(startDateRaw)
+    const endDate = new Date(endDateRaw)
 
     const campaign: PromotionCampaign = {
       title,
-      startDate: new Date(startDate),
-      endDate: new Date(endDate),
+      startDate,
+      endDate,
       rules
     }
 

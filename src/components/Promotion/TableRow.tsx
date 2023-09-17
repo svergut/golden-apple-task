@@ -47,13 +47,18 @@ export default function TableRow({
 
     for (let i = 0; i < sortedCampaigns.length; i++) {
       const campaign = sortedCampaigns[i]
-      const campaignLengthInDays = getDifferenceInDates(campaign.endDate, campaign.startDate)
+      const campaignLengthInDays = getDifferenceInDates(campaign.endDate, campaign.startDate, { 
+        includeEndDate: true,
+        includeStartDate: true 
+      })
 
       const currentCell = {
         value: campaign,
         length: campaignLengthInDays,
         offsetY: 0,
       }
+
+      console.log({ currentCell })
 
       for (const anotherCampaign of sortedCampaigns) {
         const campaignStartDateComparisonResult = compareDates(campaign.startDate, anotherCampaign.startDate) 
@@ -86,7 +91,10 @@ export default function TableRow({
 
       for (const entry of line) {
         if (entry.value) {
-          const differenceInDays = getDifferenceInDates(entry.value.startDate, previousSliceEndDate)
+          const differenceInDays = getDifferenceInDates(entry.value.startDate, previousSliceEndDate, { 
+            includeStartDate: compareDates(previousSliceEndDate, startDate) === 1 ? false : true,
+            includeEndDate: false,
+          })
 
           if (differenceInDays) {
             formattedLine.push({ offsetY: i, length: differenceInDays })
@@ -170,7 +178,7 @@ export default function TableRow({
                 line.map(({ length, value }, index) => {
                   return (
                     <span key={index} style={{
-                      width: length * itemWidthPx,
+                      width: length  * itemWidthPx,
                       border: '1px red solid',
                       borderStyle: 'inset'
                     }} className={styles.cell}>{value?.title || length}</span>
