@@ -1,7 +1,8 @@
 import { useMemo } from "react"
-import { PromotionCampaign } from "../../../interfaces/Promotion"
-import { compareDates } from "../../../utils/date"
+import cn from "classnames"
 import styles from "./table.module.css"
+import { tableItemLengthPx } from "../../../constants/ui"
+import { getDateRangeData } from "../../../utils/data"
 
 interface TableHeaderProps {
   title: string,
@@ -9,55 +10,55 @@ interface TableHeaderProps {
   endDate: Date,
 }
 
-interface TableHeaderCellProps {
-  value: string
-}
-
 export default function TableHeader({
   title,
   startDate,
   endDate
 }: TableHeaderProps) {
-  const datesToRender: TableHeaderCellProps[] = useMemo(() => {
-    const result: TableHeaderCellProps[] = []
-
-    if (!startDate) {
-      return result
-    }
-
-    let currentDate = new Date(startDate)
-
-    while (compareDates(currentDate, endDate) !== 1) {
-      result.push({
-        value: currentDate.getDate().toString(),
-      })
-
-      currentDate = new Date(currentDate)
-      currentDate.setDate(currentDate.getDate() + 1)
-    }
-
-    return result
-  }, [startDate, endDate])
+  const dataToRender = useMemo(
+    () => getDateRangeData(startDate, endDate), 
+    [startDate, endDate]
+  )
 
   return (
-    <div className={styles.row}>
+    <div className={cn(styles.row, styles.headerRow)}>
       <div className={styles.tableRowHeader}>
         <h4>{title}</h4>
       </div>
-      
 
-      {
-        datesToRender.map(({ value }) => {
-          return (
-            <span style={{
-              minWidth: 40,
-              textAlign: 'center',
-            }}>
-              <a>{value}</a>
-            </span>
-          )
-        })
-      }
+      <div className={styles.rowContent}>
+        <div className={styles.dataSlice}>
+          {
+            dataToRender.months.map(({ name, length }, index) => {
+              return (
+                <div 
+                  key={index}
+                  style={{ width: length * tableItemLengthPx }}
+                  className={styles.cell}
+                >
+                  <a>{name}</a>
+                </div>
+              )
+            })
+          }
+        </div>  
+
+        <div className={styles.dataSlice}>
+          {
+            dataToRender.dates.map((date, index) => {
+              return (
+                <div 
+                  key={index}
+                  style={{ width: tableItemLengthPx }}
+                  className={styles.cell}
+                >
+                  <a>{date}</a>
+                </div>
+              )
+            })
+          }
+        </div> 
+      </div>
     </div>
   )
 }

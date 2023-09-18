@@ -1,7 +1,6 @@
 import data from '../data/promotions.json'
 import colorsData from '../data/promotionColors.json'
 import Promotion, { PromotionCampaign } from '../interfaces/Promotion'
-import { ObjectType } from 'typescript'
 
 const promotionColors: {
   [key: string]: string | undefined

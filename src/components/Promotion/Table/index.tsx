@@ -22,9 +22,10 @@ export default function PromotionTable({
       />
 
       {
-        data.map((promotionData) => {
+        data.map((promotionData, index) => {
           return (
             <TableRow 
+              key={index}
               promotionData={promotionData} 
               startDate={startDate}
               endDate={endDate}

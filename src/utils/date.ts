@@ -29,7 +29,7 @@ export function getWeekNumber(date: Date): number {
   return Math.ceil((daysSinceYearFirstDay + firstDayOfYear.getDay() + 1) / 7);
 }
 
-type GetDifferenceInDatesOptions = {
+interface GetDifferenceInDatesOptions {
   includeStartDate?: boolean,
   includeEndDate?: boolean
 }

@@ -1,6 +1,10 @@
 .table {
+  /* display: flex;
+  flex-direction: column; */
+  /* overflow-x: scroll; */
+  overflow-x: scroll;
   display: flex;
-  gap: 8px;
+  align-items: flex-start;
   flex-direction: column;
 }
 
@@ -9,9 +13,37 @@
   flex-direction: row;
 }
 
-.tableRowHeader {
+.rowContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.dataSlice {
   display: inline-flex;
-  min-width: 200px;
+}
+
+.cell {
+  border: 1px black solid;
+  text-align: center;
+}
+
+.headerRow {
+ 
+}
+
+.tableRowHeader {
+  min-width: 225px;
+  max-width: 225px;
+  padding-left: 20px;
+  border: 1px black solid;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.tableRowHeaderContent {
+  display: flex;
+  flex-direction: row;
 }
 
 .tableRowHeader h4 {
